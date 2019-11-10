@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const db = require('./config/Keys').MONGO_DB;
 
+const user = require('./routes/api/user');
+
 
 const app = express();
 
@@ -15,10 +17,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 
-// mongoose.Promise = global.Promise;
-
 // Connect to DB
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(db, { useNewUrlParser: true, useFindAndModify: false })
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
@@ -32,6 +32,9 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   });
 }
+
+// Routes
+app.use('/api/user', user);
 
 
 // Port
