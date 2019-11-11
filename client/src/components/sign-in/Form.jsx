@@ -16,22 +16,20 @@ const Form = () => {
     <StyledForm>
       <form className='form' noValidate onSubmit={onSubmit}>
         <TextField
-          variant="outlined"
+          name="email"
+          label="Email Address"
           margin="normal"
           required
           fullWidth
           id="email"
-          label="Email Address"
-          name="email"
         />
         <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
           name="password"
           label="Password"
+          margin="normal"
           type="password"
+          required
+          fullWidth
           id="password"
         />
         <FormControlLabel

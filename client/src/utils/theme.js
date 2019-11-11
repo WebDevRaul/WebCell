@@ -9,4 +9,14 @@ export const theme = createMuiTheme({
       main: '#7f001f',
     },
   },
+  overrides: {
+    MuiInput: {
+      // Name of the styleSheet
+      underline: {
+        '&:hover:not($disabled):before': {
+          borderBottom: '1px solid rgba(0, 0, 0, 0.4)'
+        },
+      },
+    },
+  },
 });
