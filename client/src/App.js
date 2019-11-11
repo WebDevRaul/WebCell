@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
+import { ThemeProvider } from '@material-ui/core/styles';
+import { theme } from './utils/theme';
 
 import Navbar from './layout/navbar/Navbar';
 import Home from './pages/home/Home';
@@ -14,7 +15,7 @@ import './App.css';
 const App = () => {
   return (
     <div className='app'>
-      <>
+      <ThemeProvider theme={theme}>
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
@@ -24,9 +25,9 @@ const App = () => {
           <Route path='*' component={NotFound} />
         </Switch>
         <Footer />
-      </>
+      </ThemeProvider>
     </div>
   )
 }
 
-export default App
+export default App;

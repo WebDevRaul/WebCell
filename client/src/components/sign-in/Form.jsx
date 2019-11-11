@@ -42,7 +42,7 @@ const Form = () => {
           type="submit"
           fullWidth
           variant="contained"
-          color="primary"
+          color="secondary"
           className='submit'
         >
           Sign In
