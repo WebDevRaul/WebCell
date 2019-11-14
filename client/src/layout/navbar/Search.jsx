@@ -13,7 +13,7 @@ const Search = () => {
       </div>
       <InputBase
         placeholder="Search…"
-        classesName='input'
+        className='input'
       />
     </div>
   )

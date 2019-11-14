@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,6 +13,9 @@ import Mobile from './Mobile';
 import StyledNavbar from './Styled_Navbar';
 
 const Navbar = () => {
+  const [open, setOpen] = useState(true);
+
+  const onOpenMenu = () => setOpen(!open);
 
   return (
     <StyledNavbar>
@@ -24,6 +27,7 @@ const Navbar = () => {
               className='menu-button'
               color="inherit"
               aria-label="open drawer"
+              onClick={onOpenMenu}
             >
               <MenuIcon />
             </IconButton>
@@ -33,7 +37,7 @@ const Navbar = () => {
             <Search />
             <div className='desktop-mobile' />
               <Desktop />
-              <Mobile />
+              <Mobile open={open} setOpen={setOpen} />
             <div />
           </Toolbar>
         </AppBar>
