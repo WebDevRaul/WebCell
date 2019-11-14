@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -6,8 +7,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+
 import MailIcon from '@material-ui/icons/Mail';
+import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
 
 const Mobile = ({ open, setOpen }) => {
   
@@ -27,14 +29,16 @@ const Mobile = ({ open, setOpen }) => {
         onKeyDown={onToggle}
       >
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {['Home', 'iPhone', 'Samsung', 'Huawei', 'LG', 'Sony', 'Motorola'].map((text, index) => (
+            <NavLink to={text} key={text}>
+              <ListItem button style={{ margin: '10px 0', paddingLeft: '40px' }}>
+                <ListItemText primary={text} />
+                <ListItemIcon><ArrowForwardIosOutlinedIcon /></ListItemIcon>
+              </ListItem>
+              <Divider /> 
+            </NavLink>
           ))}
         </List>
-        <Divider />
         <List>
           <ListItem button>
             <ListItemIcon><MailIcon /></ListItemIcon>
